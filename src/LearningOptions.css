@@ -1,0 +1,18 @@
+.learning-options-container {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows:1fr 1fr 1fr ; */
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 3%;
+  }
+  
+  .learning-option-button{
+    margin-top: 3%;
+    padding: 2%;
+    border-radius: 25px;
+    font-size: 12vw;
+    background: transparent;
+    border: 1px solid rgb(246, 220, 22);
+  }

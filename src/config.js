@@ -1,42 +1,47 @@
 import { createChatBotMessage } from 'react-chatbot-kit';
 import wave from "./wave.jpeg"
 import Ansh from "./Ansh.jpeg"
-import LearningOptions from './learningoption';
+
+
+import Learningoptions from './learningoptions';
 const config = {
-  initialMessages: [createChatBotMessage(`Hi, How can I help you? `,{
-    widgets: LearningOptions})
+  initialMessages: [createChatBotMessage(`Hi, How can I help you? `)
+  ,
+  createChatBotMessage("Here are some options you can choose from:",
+      {
+        widget: 'learningOptions',
+      }
+    ),
+    
   ],
  
-  botName: 'Gustro Bot',
-//   customComponents: {
-//     // Replaces the default header
-//    header: () => {<div style={{ background: "linear-gradient(273deg, #FFF4E1 4.05%, #EDD9A9 50%, #DEB976 98.85%)", padding: "5px", borderRadius: "19px 19px 0px 0px;", }}>This is a header</div>
-//   }
-//   }
-// };
-
-//Register widgets i.e. custom react components
-// widgets: [
-//   {
-//     widgetName: 'dogPicture',
-//     widgetFunc: (props) => <DogPicture {...props} />,
-//   },
-// ], 
-//Use custom styles to manipulate css in the config file
-// customStyles: {
-//   botMessageBox: {
-//     backgroundColor: '#376B7E',
-//   },
-//   chatButton: {
-//     backgroundColor: '#5ccc9d',
-//   },
+  botName: 'GustoraBot',
 
 // Use custom components to replace the default components
 customComponents: {
   // Replaces the default header
- header: () => <div><div className='header'><img src={Ansh} className='header-image'/><span className='header-content'>Chat with <div className='Sub-div-header-content'>The Gustora bot</div></span></div><div className='Wave-image'><img src={wave} /></div></div>,
+ header: () => <div>
+                  <div className='header_wave'>      
+                    <div className='header'>
+                      <img src={Ansh} alt= '' className='header-image'/>
+                      <span className='header-content'>Chat with 
+                          <div className='Sub-div-header-content'>The Gustora Bot</div>
+                      </span>
+                    </div>
+                      <div className='Wave-image'>
+                        <img src={wave} alt = ''/>
+                        <div className='Wave-text'>I am your Assistant!</div> 
+                    </div>
+                  </div>
+                </div>,
+
+//  botChatMessage: (props) => {},
+  
  // Replaces the default bot avatar
- botAvatar: (props) => {},
+ botAvatar: (props) =>  {},
+ userAvatar: (props) => {},
+//  botMessageBox: ()=>{} ,
+
  customStyles: {
   botMessageBox: {
     borderRadius: "25px",
@@ -46,33 +51,24 @@ customComponents: {
   chatButton: {
     backgroundColor: '#5ccc9d',
   },
-}
+},
 
+
+},
+
+// botMessageBox:()=> {widget: Widget1} ,
+state:{
+  state:{message:""}
 },
 widgets: [
   {
     widgetName: "learningOptions",
-   widgetFunc: (props) => <LearningOptions {...props} />,
+    widgetFunc: (props) => <Learningoptions {...props} />,
+    mapStateToProps: ['state']
   },
+
 ],
 
-}
+} 
 export default config;
 
-
-/* <input type="image" src=
-"https://www.tutorialspoint.com/images/logo.png"
-height="80px" width="110px"
-alt="submit" /> */
-
-// {/* <div className="chatbot">
-// <div className="chatbot-heading">
-//    <img src={BotIcon} className="chatbot-heading-image"/>
-//     <section className="chatbot-content">Chat with <br/>The Zepto bot</section>
-//     {/* <button className="chatbot-close"></button> */}
-//     <p>...</p>
-// </div>
-// <div className="chatbot-heading2">
-//    <img src={wave}  />
-//    {/* <p className="chatbot-heading-para">i am your Assistant!</p>  */}
-// </div> */}
